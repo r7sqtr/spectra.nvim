@@ -25,12 +25,12 @@ NvChad-style colorscheme picker for Neovim with color palette preview.
 
 ```lua
 {
-  dir = "~/Development/spectra.nvim", -- or your GitHub URL
+  "r7sqtr/spectra.nvim",
   dependencies = { "MunifTanjim/nui.nvim" },
   lazy = true,
   cmd = "Spectra",
   keys = {
-    { "<leader>th", "<cmd>Spectra<cr>", desc = "Open Colorscheme Picker" },
+    { "<leader>sp", "<cmd>Spectra<cr>", desc = "Open Spectra" },
   },
   opts = {
     -- your configuration here

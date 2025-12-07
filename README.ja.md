@@ -17,10 +17,16 @@ NvChad風のカラーパレットプレビュー付きNeovimカラースキー�
 
 ```lua
 {
-  dir = "r7sqtr/spectra.nvim",
+  "r7sqtr/spectra.nvim",
   dependencies = { "MunifTanjim/nui.nvim" },
   lazy = true,
   cmd = "Spectra",
+  keys = {
+    { "<leader>sp", "<cmd>Spectra<cr>", desc = "Open Spectra" },
+  },
+  opts = {
+    -- your configuration here
+  },
 }
 ```
 
