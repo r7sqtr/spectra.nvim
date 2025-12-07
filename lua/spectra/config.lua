@@ -23,7 +23,15 @@ M.options = {}
 ---Setup configuration
 ---@param opts SpectraConfig?
 function M.setup(opts)
-  M.options = vim.tbl_deep_extend("force", {}, M.defaults, opts or {})
+  opts = opts or {}
+  -- Explicitly handle nil themes to ensure it stays nil (auto-detect)
+  local themes = opts.themes
+  opts.themes = nil
+  M.options = vim.tbl_deep_extend("force", {}, M.defaults, opts)
+  -- Restore themes after merge (nil means auto-detect, so only set if explicitly provided)
+  if themes ~= nil then
+    M.options.themes = themes
+  end
 end
 
 ---Get the data file path for persistence

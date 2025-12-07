@@ -20,7 +20,13 @@ local function cache_palettes(themes)
     return
   end
 
-  local theme_names = themes or colors.get_available_colorschemes()
+  -- Handle nil or empty themes - use auto-detection
+  local theme_names
+  if themes and type(themes) == "table" and #themes > 0 then
+    theme_names = themes
+  else
+    theme_names = colors.get_available_colorschemes()
+  end
 
   -- Use the batch extraction function
   cached_palettes, theme_list = colors.extract_all_palettes(theme_names)
