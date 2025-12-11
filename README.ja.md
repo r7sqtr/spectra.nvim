@@ -6,6 +6,8 @@ NvChad風のカラーパレットプレビュー付きNeovimカラースキー�
 
 ![Neovim](https://img.shields.io/badge/Neovim-0.9+-green.svg)
 
+<img width="2632" height="1729" alt="features" src="https://github.com/user-attachments/assets/8f390eea-31e4-4253-b298-4a5a2813fa69" />
+
 ## 要件
 
 - Neovim >= 0.9.0
