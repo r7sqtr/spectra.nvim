@@ -6,6 +6,8 @@ NvChad-style colorscheme picker for Neovim with color palette preview.
 
 ![Neovim](https://img.shields.io/badge/Neovim-0.9+-green.svg)
 
+<img width="2632" height="1729" alt="features" src="https://github.com/user-attachments/assets/4896cf79-4e47-46e3-a0d6-eb44fec41ed2" />
+
 ## Features
 
 - Floating popup UI with search/filter
