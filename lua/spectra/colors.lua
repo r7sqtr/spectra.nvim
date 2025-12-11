@@ -124,7 +124,6 @@ function M.ensure_theme_loaded(theme)
       everforest = "everforest-nvim",
       nord = "nord.nvim",
       nordic = "nordic.nvim",
-      onedark = "onedarkpro.nvim",
       ["night-owl"] = "night-owl.nvim",
       ["solarized-osaka"] = "solarized-osaka.nvim",
       ayu = "neovim-ayu",
