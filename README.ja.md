@@ -68,7 +68,3 @@ require("spectra").setup({
 
 - `:Spectra` - カラースキームピッカーを開く
 - `:SpectraRefresh` - カラーパレットキャッシュを更新
-
-## ライセンス
-
-MIT
