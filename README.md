@@ -76,7 +76,3 @@ require("spectra").setup({
 
 - `:Spectra` - Open the colorscheme picker
 - `:SpectraRefresh` - Refresh the color palette cache
-
-## License
-
-MIT
