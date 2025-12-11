@@ -104,7 +104,7 @@ end
 
 ---Try to load a colorscheme plugin via lazy.nvim
 ---@param theme string
-local function ensure_theme_loaded(theme)
+function M.ensure_theme_loaded(theme)
   -- Try to load via lazy.nvim if available
   local ok, lazy = pcall(require, "lazy")
   if ok and lazy then
@@ -157,7 +157,7 @@ function M.extract_all_palettes(theme_names)
 
   for _, theme in ipairs(theme_names) do
     -- Ensure plugin is loaded for lazy.nvim users
-    ensure_theme_loaded(theme)
+    M.ensure_theme_loaded(theme)
 
     -- Clear all highlights first to ensure clean state
     vim.cmd("highlight clear")
@@ -184,7 +184,7 @@ function M.extract_all_palettes(theme_names)
   -- Restore original colorscheme
   vim.o.background = saved_bg
   if original_scheme then
-    ensure_theme_loaded(original_scheme)
+    M.ensure_theme_loaded(original_scheme)
     pcall(vim.cmd, "colorscheme " .. original_scheme)
   end
 

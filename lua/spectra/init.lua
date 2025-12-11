@@ -39,14 +39,33 @@ end
 function M.setup(opts)
   config.setup(opts)
 
-  -- Restore persisted colorscheme immediately if available
+  -- Restore persisted colorscheme if enabled
   if config.options.persist then
-    local saved = config.load_colorscheme()
-    if saved then
-      vim.schedule(function()
-        pcall(vim.cmd, "colorscheme " .. saved)
-      end)
-    end
+    -- Try to restore immediately
+    config.apply_saved_colorscheme()
+
+    -- Also set up VimEnter autocmd to ensure restoration after all plugins load
+    -- This is especially important when lazy loading colorscheme plugins
+    vim.api.nvim_create_autocmd("VimEnter", {
+      group = vim.api.nvim_create_augroup("SpectraSetupRestore", { clear = true }),
+      callback = function()
+        vim.defer_fn(function()
+          config.apply_saved_colorscheme()
+        end, 50)
+      end,
+      once = true,
+    })
+
+    -- Also try after UIEnter for maximum compatibility
+    vim.api.nvim_create_autocmd("UIEnter", {
+      group = vim.api.nvim_create_augroup("SpectraSetupRestoreUI", { clear = true }),
+      callback = function()
+        vim.defer_fn(function()
+          config.apply_saved_colorscheme()
+        end, 100)
+      end,
+      once = true,
+    })
   end
 end
 
